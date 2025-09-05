@@ -15,7 +15,7 @@ public class UsuarioMapper {
         return dto;
     }
 
-    public  UsuarioEntity toEntity(UsuarioPatchDTO dto) {
+    public UsuarioEntity toEntity(UsuarioPatchDTO dto) {
         UsuarioEntity entity = new UsuarioEntity();
         entity.setNome(dto.getNome());
         entity.setEmail(dto.getEmail());

@@ -6,6 +6,7 @@ import com.livraria.biblioteca.mapper.UsuarioMapper;
 import com.livraria.biblioteca.model.LivroEntity;
 import com.livraria.biblioteca.model.UsuarioEntity;
 import com.livraria.biblioteca.service.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +17,9 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioController {
-
+@Autowired
     private UsuarioService usuarioService;
-
+@Autowired
     private UsuarioMapper usuarioMapper;
 
     @PostMapping("/cadastrar")
@@ -43,10 +44,10 @@ public class UsuarioController {
         usuarioService.deletarUsuarioPorId(id);
     }
     @PatchMapping("/atualizar/{id}")
-    public ResponseEntity<UsuarioPatchDTO> atualizarLivro(@PathVariable Long id, @RequestBody LivroPatchDTO dto){
-        UsuarioEntity livroBuscar = usuarioService.listarUsuarioPorId(id);
-       // dto.aplicarEm(livroBuscar);
-        UsuarioEntity atualizado = usuarioService.cadastrarUsuario(livroBuscar);
+    public ResponseEntity<UsuarioPatchDTO> atualizarUsuario(@PathVariable Long id, @RequestBody UsuarioPatchDTO dto){
+        UsuarioEntity UsuarioBuscar = usuarioService.listarUsuarioPorId(id);
+        dto.aplicarEm(UsuarioBuscar);
+        UsuarioEntity atualizado = usuarioService.cadastrarUsuario(UsuarioBuscar);
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioMapper.toDto(atualizado));
     }
 }
