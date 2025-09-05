@@ -4,6 +4,7 @@ import com.livraria.biblioteca.dto.LivroPatchDTO;
 import com.livraria.biblioteca.mapper.LivroMapper;
 import com.livraria.biblioteca.model.LivroEntity;
 import com.livraria.biblioteca.service.LivroService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,11 +13,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(name = "/livros")
+@RequestMapping("/livros")
 public class LivroController {
-
+@Autowired
     private final LivroService livroService;
-
+@Autowired
     private final LivroMapper livroMapper;
 
     public LivroController(LivroService livroService, LivroMapper livroMapper) {
