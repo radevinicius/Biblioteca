@@ -21,6 +21,11 @@ public class LivroEntity {
     String autor;
     String genero;
 
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private UsuarioEntity usuario;
+
+
     public Long getId() {
         return id;
     }

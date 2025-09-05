@@ -3,7 +3,6 @@ package com.livraria.biblioteca.controller;
 import com.livraria.biblioteca.dto.LivroPatchDTO;
 import com.livraria.biblioteca.mapper.LivroMapper;
 import com.livraria.biblioteca.model.LivroEntity;
-import com.livraria.biblioteca.repository.LivroRepository;
 import com.livraria.biblioteca.service.LivroService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,14 +15,11 @@ import java.util.stream.Collectors;
 @RequestMapping(name = "/livros")
 public class LivroController {
 
-    private final LivroRepository livroRepository;
-
     private final LivroService livroService;
 
     private final LivroMapper livroMapper;
 
-    public LivroController(LivroRepository livroRepository, LivroService livroService, LivroMapper livroMapper) {
-        this.livroRepository = livroRepository;
+    public LivroController(LivroService livroService, LivroMapper livroMapper) {
         this.livroService = livroService;
         this.livroMapper = livroMapper;
     }
