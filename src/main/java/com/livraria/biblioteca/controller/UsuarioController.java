@@ -1,9 +1,7 @@
 package com.livraria.biblioteca.controller;
 
-import com.livraria.biblioteca.dto.LivroPatchDTO;
 import com.livraria.biblioteca.dto.UsuarioPatchDTO;
 import com.livraria.biblioteca.mapper.UsuarioMapper;
-import com.livraria.biblioteca.model.LivroEntity;
 import com.livraria.biblioteca.model.UsuarioEntity;
 import com.livraria.biblioteca.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
